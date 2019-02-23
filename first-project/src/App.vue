@@ -1,6 +1,10 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
+    <nav>
+        <a href="#/"> Home </a>
+        <a href="#/calculator"> Calculator </a>
+    </nav>
     <router-view/>
   </div>
 </template>

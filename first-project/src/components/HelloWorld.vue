@@ -2,7 +2,7 @@
   <div class="hello">
     <h1>{{ title }}</h1>
     <h2>{{ subtitle }}</h2>
-    <a href="/calculator"> To Calculator </a>
+    <a href="/#/calculator"> To Calculator </a>
   </div>
 </template>
 
