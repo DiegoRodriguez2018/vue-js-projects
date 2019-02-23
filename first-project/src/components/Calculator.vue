@@ -28,14 +28,73 @@
 </template>
 
 <script>
-export default {
-  name: 'Calculator',
-  data () {
-    return {
-      title: 'Calculator'
+
+function main() {
+  const buttons = document.querySelectorAll('.button');
+  const output = document.querySelector('.output');
+  let operation = null;
+  let current = 0;
+
+  const operations = {
+    '±': ' - ',
+    '%': ' % ',
+    '÷': ' / ',
+    '×': ' * ',
+    '−': ' - ',
+    '+': ' + ',
+  };
+
+  buttons.forEach(button => {
+    button.addEventListener("click", (e) => {
+      const input = e.target.innerText;
+      const num = parseInt(input);
+      if (isNaN(num)) {
+        if (input === 'C') {
+          operation = null;
+          current = 0;
+          output.innerText = 0;
+        } else {
+          if (operation && operation !== '=') {
+            const result = current + operations[operation] + output.innerText;
+            output.innerText = eval(result);
+          }
+          current = parseInt(output.innerText);
+          operation = input;
+        }
+      } else {
+        if (current === parseInt(output.innerText)) {
+          output.innerText = num;
+        } else {
+          output.innerText += num;
+        }
+      }
+      console.log({
+        operation: operation,
+        current: current,
+        input: input,
+      });
+    });  
+  });
+
+  document.addEventListener('keypress', function (e) {
+    if (e.which > 47 && e.which < 58) {
+      console.log('numbers!');
+    }
+  });
+
+}
+
+ export default {
+    mounted: function (){
+      main();
+    },
+    name: 'Calculator',
+    data () {
+      return {
+        title: 'Calculator'
+      }
     }
   }
-}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
