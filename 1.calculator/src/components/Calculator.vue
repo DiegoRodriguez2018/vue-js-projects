@@ -1,7 +1,5 @@
 <template>
   <div class="calculator-container">
-    <h1>{{ title }}</h1>
-
     <div class="calculator">
       <div class="output">0</div>
       <div class="button">C</div>
@@ -29,7 +27,7 @@
 
 <script>
 
-function main() {
+function main () {
   const buttons = document.querySelectorAll('.button');
   const output = document.querySelector('.output');
   let operation = null;
@@ -41,11 +39,11 @@ function main() {
     '÷': ' / ',
     '×': ' * ',
     '−': ' - ',
-    '+': ' + ',
+    '+': ' + '
   };
 
   buttons.forEach(button => {
-    button.addEventListener("click", (e) => {
+    button.addEventListener('click', (e) => {
       const input = e.target.innerText;
       const num = parseInt(input);
       if (isNaN(num)) {
@@ -56,7 +54,8 @@ function main() {
         } else {
           if (operation && operation !== '=') {
             const result = current + operations[operation] + output.innerText;
-            output.innerText = eval(result);
+            // eslint-disable-next-line
+            output.innerText = eval(result); 
           }
           current = parseInt(output.innerText);
           operation = input;
@@ -71,9 +70,9 @@ function main() {
       console.log({
         operation: operation,
         current: current,
-        input: input,
+        input: input
       });
-    });  
+    });
   });
 
   document.addEventListener('keypress', function (e) {
@@ -81,23 +80,14 @@ function main() {
       console.log('numbers!');
     }
   });
-
 }
 
- export default {
-    mounted: function (){
-      main();
-    },
-    name: 'Calculator',
-    components: {
-      Button
-    },
-    data () {
-      return {
-        title: 'Calculator'
-      }
-    }
-  }
+export default {
+  mounted: function () {
+    main();
+  },
+  name: 'Calculator'
+}
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
@@ -127,6 +117,9 @@ body {
 }
 
 .calculator {
+  border: 1px solid grey;
+  border-radius: 5px;
+
   font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   height: 100%;
   margin: 0 auto;
@@ -143,6 +136,8 @@ body {
 }
 
 .button {
+  border: 1px solid grey;
+  border-radius: 5px;
   box-sizing: border-box;
   cursor: pointer;
   float: left;
