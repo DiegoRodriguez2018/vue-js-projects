@@ -1,7 +1,7 @@
 <template>
   <main> 
     <h1> Abecedarium Carousel </h1>
-      <Carousel :cards = "['A','B', 'C', 'D']" />
+      <Carousel :cards = cards />
   </main>
 </template>
 
@@ -9,7 +9,22 @@
 import Carousel from '@/components/Carousel'
 export default {
   name: 'Home',
-  components: { Carousel }
+  components: { Carousel },
+  data() {
+    return {
+      cards: this.getAbecedarium()
+    };
+  },
+  methods: {
+    getAbecedarium(){
+      const abecedarium = [];
+      for(let letter=65;letter<91;letter++){
+        let char = String.fromCharCode(letter);
+        abecedarium.push(char);
+      }
+      return abecedarium;
+    }
+  }
 }
 </script>
 

@@ -26,10 +26,18 @@ export default {
   },
   methods: {
     next(){
-      console.log('next');
+      if (this.currentElementIndex === this.cards.length-1){
+        this.currentElementIndex = 0;
+      } else {
+        this.currentElementIndex++;
+      }
     },
     previous(){
-      console.log('previous');
+      if (this.currentElementIndex === 0){
+        this.currentElementIndex = this.cards.length-1;
+      } else {
+        this.currentElementIndex--;
+      }
     }
   }
 }
