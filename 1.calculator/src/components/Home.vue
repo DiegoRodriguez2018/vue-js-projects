@@ -1,19 +1,16 @@
 <template>
   <div class="hello">
     <h1>{{ title }}</h1>
-    <h2>{{ subtitle }}</h2>
-    <a href="/#/calculator"> To Calculator </a>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
+  name: 'Calculator',
   data () {
     return {
-      title: 'My first vue App',
-      subtitle: 'Is a calculator!'
-    }
+      title: 'Welcome'
+    };
   }
 }
 </script>
