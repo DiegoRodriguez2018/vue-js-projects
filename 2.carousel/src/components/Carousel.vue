@@ -1,9 +1,9 @@
 <template>
   <main> 
     <div class="carousel-container">
-      <div class="button"> previous </div>
+      <div class="button" v-on:click="previous()"> Previous </div>
       <Card :letter= currentElement />
-      <div class="button"> next </div>
+      <div class="button" v-on:click="next()"> Next </div>
     </div>
   </main>
 </template>
@@ -22,6 +22,14 @@ export default {
   computed: {
     currentElement() {
       return this.cards[this.currentElementIndex];
+    }
+  },
+  methods: {
+    next(){
+      console.log('next');
+    },
+    previous(){
+      console.log('previous');
     }
   }
 }
