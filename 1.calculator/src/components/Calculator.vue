@@ -89,6 +89,9 @@ function main() {
       main();
     },
     name: 'Calculator',
+    components: {
+      Button
+    },
     data () {
       return {
         title: 'Calculator'

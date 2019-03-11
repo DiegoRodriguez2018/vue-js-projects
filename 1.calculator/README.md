@@ -1,6 +1,4 @@
-# first-project
-
-> my first vue project
+# Calculator
 
 ## Build Setup
 
