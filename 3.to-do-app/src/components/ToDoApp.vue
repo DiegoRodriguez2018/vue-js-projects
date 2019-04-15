@@ -3,7 +3,7 @@
     <h1>To Do App</h1>
     <form>
       <input id="input" placeholder="Enter your item here">
-      <button v-on:click="addToDatabase()" class="add-button">Add</button>
+      <button v-on:click="addToDatabase($event)" class="add-button">Add</button>
     </form>
     <div>
       <ul> 
@@ -23,9 +23,12 @@ export default {
   },
   methods: {
     addToDatabase (e) {
+      e.stopPropagation();
       e.preventDefault();
       const input = document.querySelector('#input');
       this.list.push(input.value);
+      console.log(input.value);
+      input.value = '';
     }
   }
 };
