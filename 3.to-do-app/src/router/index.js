@@ -1,21 +1,23 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+
+
 import Welcome from '@/components/Welcome'
 import ToDoApp from '@/components/ToDoApp'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
+  mode:'history',
+  base:__dirname,
   routes: [
     {
       path: '/',
-      name: 'Welcome',
       component: Welcome
     },
     {
       path: '/app',
-      name: 'ToDoApp',
       component: ToDoApp
-    }
+    },
   ]
 })

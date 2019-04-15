@@ -1,8 +1,8 @@
 <template>
   <nav class="navigation-bar">
     <img src="../assets/logo.png">
-    <a class="nav-button" href="#/">Home</a>
-    <a class="nav-button" href="#/app">To Do App</a>
+    <a class="nav-button" href="/">Home</a>
+    <a class="nav-button" href="/app">To Do App</a>
   </nav>
 </template>
 

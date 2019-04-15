@@ -7,7 +7,7 @@
     </form>
     <div>
       <ul> 
-        <li v:for="item in list"> {{item}} </li>  
+        <li v-for="item in list" :key="item" > {{ item }} </li>  
       </ul>  
     </div>
   </div>
@@ -22,7 +22,8 @@ export default {
     };
   },
   methods: {
-    addToDatabase () {
+    addToDatabase (e) {
+      e.preventDefault();
       const input = document.querySelector('#input');
       this.list.push(input.value);
     }
