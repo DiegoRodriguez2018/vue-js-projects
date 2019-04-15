@@ -1,4 +1,8 @@
-# to-do-app
+# To-Do App
+This is a simple CRUD application build on Vue.js. 
+
+## Screenshots
+![](2019-04-16-09-44-48.png)
 
 ## Project setup
 ```
@@ -24,6 +28,3 @@ npm run test
 ```
 npm run lint
 ```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).

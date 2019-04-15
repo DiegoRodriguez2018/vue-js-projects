@@ -7,7 +7,7 @@
     </form>
     <div class="list-container">
       <ul class='list'> 
-        <li v-for="item in list" :key="item" > {{ item }} </li>  
+        <li v-for="item in list" :key="item" > <span class="delete-button" :key="item">X</span>{{ item }} </li>  
       </ul>  
     </div>
   </div>
@@ -52,6 +52,25 @@ a {
   min-width: 300px;
   max-width: 80vw;
   text-align: left;
-  background: grey;
 }
+
+li{
+  list-style: none;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.delete-button{
+  background: rgb(247, 5, 5);
+  opacity: .8;
+  font-size: 1rem;
+  font-weight: 600;
+  color:white;
+  width:40px;
+  height: 40px;
+  border-radius: 25%;
+  padding: 5px;
+  margin: 1rem;
+}
+
 </style>
