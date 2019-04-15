@@ -5,8 +5,8 @@
       <input id="input" placeholder="Enter your item here">
       <button v-on:click="addToDatabase($event)" class="add-button">Add</button>
     </form>
-    <div>
-      <ul> 
+    <div class="list-container">
+      <ul class='list'> 
         <li v-for="item in list" :key="item" > {{ item }} </li>  
       </ul>  
     </div>
@@ -18,7 +18,7 @@ export default {
   name: 'ToDoApp',
   data() {
     return {
-      list: ["A", "B"]
+      list: []
     };
   },
   methods: {
@@ -40,15 +40,18 @@ h1,
 h2 {
   font-weight: normal;
 }
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
 a {
   color: #42b983;
+}
+
+.list-container{
+  display: flex;
+  justify-content: center;
+}
+.list{
+  min-width: 300px;
+  max-width: 80vw;
+  text-align: left;
+  background: grey;
 }
 </style>
