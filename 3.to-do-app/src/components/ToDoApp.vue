@@ -1,19 +1,30 @@
 <template>
   <div clas="to-do-app">
-    <h1 v-on:click="addToDatabase()">To Do App</h1>
+    <h1>To Do App</h1>
     <form>
-      <input placeholder="Enter your item here">
+      <input id="input" placeholder="Enter your item here">
       <button v-on:click="addToDatabase()" class="add-button">Add</button>
     </form>
+    <div>
+      <ul> 
+        <li v:for="item in list"> {{item}} </li>  
+      </ul>  
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'ToDoApp',
+  data() {
+    return {
+      list: ["A", "B"]
+    };
+  },
   methods: {
     addToDatabase () {
-      console.log('testing');
+      const input = document.querySelector('#input');
+      this.list.push(input.value);
     }
   }
 };
