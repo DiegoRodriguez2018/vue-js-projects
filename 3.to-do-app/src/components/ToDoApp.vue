@@ -3,7 +3,7 @@
     <h1>To Do App</h1>
     <form>
       <input id="input" placeholder="Enter your item here">
-      <button v-on:click="addToDatabase($event)" class="add-button">Add</button>
+      <button v-on:click="addToDatabase($event)" class="add-button">ADD</button>
     </form>
     <div class="list-container">
       <ul class='list'> 
@@ -46,6 +46,10 @@ a {
   color: #42b983;
 }
 
+#input {
+  font-size: .8rem;
+}
+
 .list-container{
   display: flex;
   justify-content: center;
@@ -63,8 +67,8 @@ li{
 }
 
 .delete-button{
-  background: rgb(247, 5, 5);
-  opacity: .8;
+  background: red;
+  opacity: .7;
   font-size: 1rem;
   font-weight: 600;
   color:white;
@@ -73,6 +77,17 @@ li{
   border-radius: 25%;
   padding: 5px;
   margin: 1rem;
+}
+
+.add-button{
+  background:#42b983;
+  border:0;
+  font-weight: 600;
+  color: white;
+  padding: 4px;
+  margin-left: 1rem;
+  width: 4rem;
+  border-radius: 5px;
 }
 
 </style>

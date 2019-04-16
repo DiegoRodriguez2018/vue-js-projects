@@ -2,7 +2,7 @@
 This is a simple CRUD application build on Vue.js. 
 
 ## Screenshots
-![](2019-04-16-09-44-48.png)
+![](2019-04-16-10-17-34.png)
 
 ## Project setup
 ```
