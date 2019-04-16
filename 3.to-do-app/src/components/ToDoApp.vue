@@ -7,7 +7,7 @@
     </form>
     <div class="list-container">
       <ul class='list'> 
-        <li v-for="item in list" :key="item" > <span class="delete-button" :key="item">X</span>{{ item }} </li>  
+        <li v-for="(item, index) in list" :key="index" > <span class="delete-button" :key="index" v-on:click="deleteFromDatabase(index,$event)">X</span>{{ item }} </li>  
       </ul>  
     </div>
   </div>
@@ -27,8 +27,10 @@ export default {
       e.preventDefault();
       const input = document.querySelector('#input');
       this.list.push(input.value);
-      console.log(input.value);
       input.value = '';
+    },
+    deleteFromDatabase(index,e) {
+      this.list.splice(index, 1);
     }
   }
 };
