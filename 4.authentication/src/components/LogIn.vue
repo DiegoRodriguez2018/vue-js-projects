@@ -29,8 +29,7 @@
                 const url = `${baseUrl}/api/login`;
                 axios.post(url, data)    
                     .then((response) => {    
-                        // console.log('response',': ', response);
-                        console.log("Logged in")    
+                        console.log(response.data)    
                         router.push("/dashboard")    
                     })    
                     .catch((errors) => {    
