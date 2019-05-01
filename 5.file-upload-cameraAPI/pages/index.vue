@@ -2,22 +2,11 @@
   <section class="container">
     <div>
       <logo />
-      <h1 class="title">
-        camera
-      </h1>
       <h2 class="subtitle">
-        My solid Nuxt.js project
+        Web app implementing the Camera API.
       </h2>
       <div class="links">
-        <a href="https://nuxtjs.org/" target="_blank" class="button--green"
-          >Documentation</a
-        >
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-          >GitHub</a
-        >
+        <a href="/file-upload" class="button--green">File Upload</a>
       </div>
     </div>
   </section>
