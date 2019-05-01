@@ -1,15 +1,16 @@
 <template>
   <div>
-    <h1>Take a pic</h1>
-    <input
-      id="take-picture"
-      type="file"
-      accept="image/*"
-      @change="fileUpload"
-    />
-    <div class="preview">
-      Preview:
-      <img id="show-picture" src="about:blank" alt />
+    <h1 class="title">Picture upload</h1>
+    <div class="preview-container">
+      <input
+        id="take-picture"
+        type="file"
+        accept="image/*"
+        @change="fileUpload"
+      />
+      <div class="preview">
+        <img id="show-picture" src="about:blank" alt />
+      </div>
     </div>
   </div>
 </template>
@@ -35,3 +36,28 @@ export default {
   }
 }
 </script>
+
+<style>
+.title{
+  text-align: center;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+.preview-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+}
+.preview{ 
+  margin-top: 1rem;
+  border: 1px grey solid;
+  border-radius: 2%;
+  width: 70vh;
+  height: 70vh;
+}
+
+#show-picture{
+  width: 100%;
+  max-height: 100%;
+}
+</style>
