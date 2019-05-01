@@ -1,9 +1,12 @@
-# camera
+# Camera Web APP
+> Web app implementing the Camera web API. 
+> Note that the this API is not on a current W3C standards track, but it is supported on the Firefox OS platform. 
 
-> Web app implementing camera API. 
+### Screenshots
+### File upload
+![](2019-05-01-12-15-27.png)
 
 ## Build Setup
-
 ``` bash
 # install dependencies
 $ npm install
@@ -20,3 +23,5 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+
+

@@ -57,7 +57,8 @@ export default {
 }
 
 #show-picture{
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   max-height: 100%;
 }
 </style>
