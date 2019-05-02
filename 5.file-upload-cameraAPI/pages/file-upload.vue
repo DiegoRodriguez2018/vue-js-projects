@@ -50,17 +50,34 @@ export default {
       let data = new FormData();
       data.append('file', this.file);
       
+      // const options = {
+      //   headers: {
+      //     'accept': 'application/json',
+      //     'Accept-Language': 'en-US,en;q=0.8',
+      //     'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+      //   }
+      // }
+
+      // const url = "http://localhost:3500/file-upload"
+      // axios.post(url, data, options)
+      // .then (res => {
+      //   console.log(res);
+      // })
+
+
       const options = {
         headers: {
-          'accept': 'application/json',
-          'Accept-Language': 'en-US,en;q=0.8',
-          'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+          'Content-Type': `multipart/form-data`,
         }
       }
-      const url = "http://localhost:3500/file-upload"
-      axios.post(url, data, options)
+
+      const url = ""
+      axios.put(url, data, options)
       .then (res => {
         console.log(res);
+      })
+      .catch(err=>{
+        console.log(err)
       })
 
     }
