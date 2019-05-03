@@ -50,36 +50,44 @@ export default {
       let data = new FormData();
       data.append('file', this.file);
       
-      // const options = {
-      //   headers: {
-      //     'accept': 'application/json',
-      //     'Accept-Language': 'en-US,en;q=0.8',
-      //     'Content-Type': `multipart/form-data; boundary=${data._boundary}`,
+      
+
+      const url = "http://localhost:3500/file-upload"
+      // const config = {
+      //   params: {
+      //     Key : "tigre.jpeg", // remote name in AWS S3 ?
+      //     ContentType :  `multipart/form-data; boundary=${data._boundary}`// img
       //   }
       // }
 
-      // const url = "http://localhost:3500/file-upload"
-      // axios.post(url, data, options)
-      // .then (res => {
-      //   console.log(res);
-      // })
 
-
-      const options = {
-        headers: {
-          'Content-Type': `multipart/form-data`,
+      const config = {
+        params: {
+          Key : "tigre.jpeg", // remote name in AWS S3 ?
+          ContentType :  `multipart/form-data; boundary=${data._boundary}`// img
         }
       }
 
-      const url = ""
-      axios.put(url, data, options)
-      .then (res => {
-        console.log(res);
-      })
-      .catch(err=>{
-        console.log(err)
-      })
+      axios.get(url, config)
+      .then (res=> {
+        const { data: {putUrl} } = res;
+        const s3PutUrl = putUrl;  
+        console.log('s3PutUrl',': ', s3PutUrl);
+        
+        // const options = {
+        //   headers: {
+        //     'Content-Type': `multipart/form-data; boundary=${data._boundary}`
+        //   }
+        // }
 
+        // axios.put(s3PutUrl, data, options)
+        // .then (res => {
+        //   console.log('res',': ', res);
+        // })
+        // .catch(err=>{
+        //   console.log('err', err)
+        // })
+      })
     }
   }
 }
