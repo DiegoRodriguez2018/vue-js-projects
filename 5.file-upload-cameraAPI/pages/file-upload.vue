@@ -47,53 +47,59 @@ export default {
     fileUpload: function(e){
       e.preventDefault();
 
-      let data = new FormData();
-      data.append('file', this.file);
+      let formData = new FormData();
+      console.log('this.file',': ', this.file);
+      
+
+      // formData.append('name','diego');
+      formData.append('file', this.file);
       
       const url = "http://localhost:3500/file-upload"
+           
+      /*
+      TODO: we need to specify in the request headers content-type and content-length. Otherwise the signature wont match.
+      The key can be different to the actual file name, but is unique in the remote bucket.
       
-      // const config = {
-      //   params: {
-      //     Key : "tiger_cub.jpeg", 
-      //     ContentType :  "multipart/form-data; boundary=${data._boundary}"
-      //   }
-      // }
+      TODO: change key format to userID_filename
 
+      TODO: calculate Content-Length
+      */
+
+      const fileName = this.file.name;
+      const fileType = this.file.type;
+
+      console.log('values:', {fileName,fileType, formData, entries: formData.entries()});
 
       const config = {
         params: {
-          Key : "tiger_cub.jpeg", 
+          Key : fileName, 
           ContentType :  "multipart/form-data"
         }
       }
-
-      // const config = {
-      //   params: {
-      //     Key : "test.json", 
-      //     ContentType :  `application/json`
-      //   }
-      // }
 
       axios.get(url, config)
       .then (res=> {
         const { data: {putUrl} } = res;
         const s3PutUrl = putUrl;  
-        console.log('s3PutUrl',': ', s3PutUrl);
-        
-        // const options = {
-        //   headers: {
-        //     'Content-Type': `multipart/form-data; boundary=${data._boundary}`
-        //   }
-        // }
+        console.log('putUrl',': ', putUrl);
+                
+        const options = {
+          headers: {
+            // 'Content-Length': "3673",
+            'Content-Type': `multipart/form-data`
+          }
+        }
 
-        // axios.put(s3PutUrl, data, options)
-        // .then (res => {
-        //   console.log('res',': ', res);
-        // })
-        // .catch(err=>{
-        //   console.log('err', err)
-        // })
+        axios.put(s3PutUrl, formData, options)
+        .then (res => {
+          console.log("Success")
+          console.log('res',': ', res);
+        })
+        .catch(err=>{
+          console.log('err', err)
+        })
       })
+
     }
   }
 }
