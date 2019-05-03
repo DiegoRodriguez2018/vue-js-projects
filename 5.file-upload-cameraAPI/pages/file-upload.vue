@@ -47,50 +47,34 @@ export default {
     fileUpload: function(e){
       e.preventDefault();
 
-      let formData = new FormData();
-      console.log('this.file',': ', this.file);
-      
-
-      // formData.append('name','diego');
-      formData.append('file', this.file);
-      
-      const url = "http://localhost:3500/file-upload"
-           
       /*
-      TODO: we need to specify in the request headers content-type and content-length. Otherwise the signature wont match.
-      The key can be different to the actual file name, but is unique in the remote bucket.
-      
       TODO: change key format to userID_filename
-
-      TODO: calculate Content-Length
       */
-
-      const fileName = this.file.name;
-      const fileType = this.file.type;
-
-      console.log('values:', {fileName,fileType, formData, entries: formData.entries()});
-
-      const config = {
-        params: {
-          Key : fileName, 
-          ContentType :  "multipart/form-data"
+     
+     const url = "http://localhost:3500/file-upload"
+     
+     const file = this.file;
+     const fileName = file.name;
+     const fileType = file.type;
+     
+     const config = {
+       params: {
+         Key : fileName, 
+          ContentType :  "image/jpeg"
         }
       }
-
+      
       axios.get(url, config)
       .then (res=> {
         const { data: {putUrl} } = res;
         const s3PutUrl = putUrl;  
-        console.log('putUrl',': ', putUrl);
-                
         const options = {
           headers: {
-            // 'Content-Length': "3673",
-            'Content-Type': `multipart/form-data`
+            'Content-Type': "image/jpeg"
           }
         }
 
-        axios.put(s3PutUrl, formData, options)
+        axios.put(s3PutUrl, file, options)
         .then (res => {
           console.log("Success")
           console.log('res',': ', res);
