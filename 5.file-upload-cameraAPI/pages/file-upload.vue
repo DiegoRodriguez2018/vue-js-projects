@@ -50,23 +50,29 @@ export default {
       let data = new FormData();
       data.append('file', this.file);
       
-      
-
       const url = "http://localhost:3500/file-upload"
+      
       // const config = {
       //   params: {
-      //     Key : "tigre.jpeg", // remote name in AWS S3 ?
-      //     ContentType :  `multipart/form-data; boundary=${data._boundary}`// img
+      //     Key : "tiger_cub.jpeg", 
+      //     ContentType :  "multipart/form-data; boundary=${data._boundary}"
       //   }
       // }
 
 
       const config = {
         params: {
-          Key : "tigre.jpeg", // remote name in AWS S3 ?
-          ContentType :  `multipart/form-data; boundary=${data._boundary}`// img
+          Key : "tiger_cub.jpeg", 
+          ContentType :  "multipart/form-data"
         }
       }
+
+      // const config = {
+      //   params: {
+      //     Key : "test.json", 
+      //     ContentType :  `application/json`
+      //   }
+      // }
 
       axios.get(url, config)
       .then (res=> {

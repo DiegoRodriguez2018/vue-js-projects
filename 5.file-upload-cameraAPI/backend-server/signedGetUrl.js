@@ -9,7 +9,7 @@ const s3 = new AWS.S3()
 
 const url = s3.getSignedUrl('getObject', {
   Bucket: process.env.BUCKET,
-  Key: 'key',
+  Key: 'test.json',
   Expires: 120
 })
 
